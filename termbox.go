@@ -22,7 +22,6 @@ const (
 	t_sgr0
 	t_underline
 	t_bold
-	t_dim
 	t_italic
 	t_blink
 	t_reverse
@@ -136,9 +135,6 @@ func send_attr(fg, bg Attribute) {
 		}
 		if bg&AttrBold != 0 {
 			outbuf.WriteString(funcs[t_blink])
-		}
-		if fg&AttrDim != 0 {
-			outbuf.WriteString(funcs[t_dim])
 		}
 		if fg&AttrItalic != 0 {
 			outbuf.WriteString(funcs[t_italic])
